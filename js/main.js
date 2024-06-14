@@ -43,7 +43,9 @@ async function city(Name){
     dayName.innerHTML = `${currnetDay} (${new Date().getDate()}  ${currnetmonth})`;
 
     weatherError.classList.add("d-none");
-    
+    for (let y = 0; y < temp.length; y++) {
+        temp[y].innerHTML = `${final.avgtemp_c}°C`;
+    }
 }
 catch (error) {
 
@@ -100,16 +102,19 @@ weather.addEventListener("load",()=>{
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    var body = document.querySelector("body");
+    let body = document.querySelector("body");
 
-    var date = new Date();
-    var hour = date.getHours();
+    let date = new Date();
+    let hour = date.getHours();
     if (hour >= 19 || hour < 6) {
-        body.style.backgroundImage = "url(../image/bg-3.jpg)";
+        body.style.backgroundImage = "url('../image/bg-3.jpg')";
     } else {
-        body.style.backgroundImage = "url(../image/bg1.jpg)";
+        body.style.backgroundImage = "url('../image/bg1.jpg')";
     }
 });
 
+for (let i = 0; i < nameDay.length; i++) {
+  nameDay[i].innerHTML = days[i]
+}
 
 // cv مدرس تاسيس صفوف الولبيه //
