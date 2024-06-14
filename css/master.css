@@ -1,0 +1,93 @@
+body{
+    background: url(../image/bg2.jpg);
+background-attachment: fixed;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+body::after{
+    position: fixed;
+    top: 0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.3);
+    content: "";
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+}
+/* .all{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+} */
+.weather {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 11px #00000042;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    width: 400px;
+    height: 500px;
+    border-radius: 15px;
+    margin: 0 auto;
+    color: #fff;
+}
+.search-box{
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px;
+    border-radius: 8px;
+}
+input{
+    background:transparent;
+    outline: none;
+    padding-left: 25px;
+    color: #ffffff;
+}
+.search{
+    cursor: pointer;
+    border-bottom-right-radius: 8px;
+}
+::placeholder{
+    text-transform: capitalize;
+    color: #ffffff;
+}
+.search-box i{
+    font-size: 20px;
+}
+.details i,.east-box i{
+    font-size: 35px;
+}
+.details span,.east-box span{
+    font-size: 20px;
+    font-weight: 500;
+}
+.details h6,.east-box h6{
+    font-size: 16px;
+}
+
+.details{
+    justify-content: space-around;
+}
+.row.next {
+    backdrop-filter: sepia(1) blur(10px);
+}
+@media (max-width:500px) {
+    .weather{
+        width: 94%;
+        height: 100%;
+    }
+    .details i,.east-box i{
+        font-size: 25px;
+    }
+    .details span,.east-box span{
+        font-size: 16px;
+        font-weight: 500;
+    
+}
+.details{
+    justify-content: space-between;
+}
+}
