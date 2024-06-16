@@ -1,6 +1,6 @@
 let nameCity = document.querySelector(".name");
 let tempC = document.querySelector(".temp_c");
-let text = document.querySelector(".text");
+let text = document.querySelectorAll(".text");
 let humidity = document.querySelector(".humidity");
 let wind = document.querySelector(".wind");
 let east = document.querySelector(".east");
@@ -30,20 +30,20 @@ async function city(Name) {
 
         nameCity.innerHTML = `${final.location.name}`;
         tempC.innerHTML = `${final.current.temp_c}°C`;
-        text.innerHTML = `${final.current.condition.text}`;
+        text[0].innerHTML = `${final.current.condition.text}`;
         east.innerHTML = `${final.current.wind_dir}`;
         document.querySelector(".weather img").src = getWeatherIcon(final.current.condition.code);
         wind.innerHTML = `${final.current.wind_kph} km/h`;
         humidity.innerHTML = `${final.current.humidity}%`;
 
-        dayName.innerHTML = `${currnetDay} (${new Date().getDate()}  ${currnetmonth})`;
+        dayName.innerHTML = `${currnetDay} (${new Date().getDate()} ${currnetmonth})`;
 
         weatherError.classList.add("d-none");
-
         let forecastDays = final.forecast.forecastday;
-        for (let y = 0; y < forecastDays.length && y < temp.length; y++) {
+        for (let y = 0; y < forecastDays.length && y < temp.length && y < text.length; y++) {
             let day = forecastDays[y];
             temp[y].innerHTML = `${day.day.avgtemp_c}°C`;
+            text[y + 1].innerHTML = `${day.day.condition.text}`;
             img[y].src = getWeatherIcon(day.day.condition.code);
         }
     } catch (error) {
@@ -65,7 +65,7 @@ async function getWeatherByGeolocation() {
 
             nameCity.innerHTML = data.location.name;
             tempC.innerHTML = `${data.current.temp_c}°C`;
-            text.innerHTML = data.current.condition.text;
+            text[0].innerHTML = data.current.condition.text;
             east.innerHTML = data.current.wind_dir;
             wind.innerHTML = `${data.current.wind_kph} km/h`;
             humidity.innerHTML = `${data.current.humidity}%`;
@@ -75,9 +75,10 @@ async function getWeatherByGeolocation() {
             weatherError.classList.add("d-none");
 
             let forecastDays = data.forecast.forecastday;
-            for (let y = 0; y < forecastDays.length && y < temp.length; y++) {
+            for (let y = 0; y < forecastDays.length && y < temp.length && y < text.length; y++) {
                 let day = forecastDays[y];
                 temp[y].innerHTML = `${day.day.avgtemp_c}°C`;
+                text[y + 1].innerHTML = `${day.day.condition.text}`;
                 img[y].src = getWeatherIcon(day.day.condition.code);
             }
         });
@@ -123,8 +124,8 @@ for (let i = 0; i < nameDay.length; i++) {
     nameDay[i].innerHTML = days[dayIndex];
 }
 
-function getWeatherIcon(conditionCode) {
-    switch (conditionCode) {
+function getWeatherIcon(condition) {
+    switch (condition) {
         case 1000: 
             return "../image/sunny.png";
         case 1003: 
@@ -145,4 +146,4 @@ function getWeatherIcon(conditionCode) {
     }
 }
 
-// cv مدرس تاسيس صفوف الولبيه //
+
