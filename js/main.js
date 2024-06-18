@@ -121,9 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
         body.style.backgroundImage = "url('image/bg4.jpg')";
     } else if (hour >= 19 || hour < 2) {
         body.style.backgroundImage = "url('image/bg2.jpg')";
-    } else {
-        body.style.backgroundImage = "url('image/default.jpg')";
-    }
+    } 
 });
 
 for (let i = 0; i < nameDay.length; i++) {
