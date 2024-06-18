@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function() {
     } else if (hour >= 16 && hour < 19) {
         body.style.backgroundImage = "url('image/bg4.jpg')";
     } else if (hour >= 19 || hour < 2) {
-        body.style.backgroundImage = "url('image/bg2.jpg')";
+        body.style.backgroundImage = "url('image/bg1.jpg')";
     } 
 });
 
