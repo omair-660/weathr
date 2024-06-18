@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
         body.style.backgroundImage = "url('image/bg-3.jpg')";
     } else if (hour >= 15 && hour < 19) {
         body.style.backgroundImage = "url('image/bg4.jpg')";
-    } else if (hour >= 19 || hour < 2) {
+    } else if (hour >= 19 || hour < 3) {
         body.style.backgroundImage = "url('image/bg1.jpg')";
     } 
 });
