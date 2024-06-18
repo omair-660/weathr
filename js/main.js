@@ -112,10 +112,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let date = new Date();
     let hour = date.getHours();
-    if (hour >= 19 || hour < 6) {
-        body.style.backgroundImage = "url('../image/bg-3.jpg')";
+
+    if (hour >= 3 && hour < 6) {
+        body.style.backgroundImage = "url('image/fajr.jpeg')";
+    } else if (hour >= 7 && hour < 15) {
+        body.style.backgroundImage = "url('image/bg-3.jpg')";
+    } else if (hour >= 16 && hour < 19) {
+        body.style.backgroundImage = "url('image/bg4.jpg')";
+    } else if (hour >= 19 || hour < 2) {
+        body.style.backgroundImage = "url('image/bg2.jpg')";
     } else {
-        body.style.backgroundImage = "url('../image/bg1.jpg')";
+        body.style.backgroundImage = "url('image/default.jpg')";
     }
 });
 
@@ -127,23 +134,33 @@ for (let i = 0; i < nameDay.length; i++) {
 function getWeatherIcon(condition) {
     switch (condition) {
         case 1000: 
-            return "../image/sunny.png";
+            return "image/sunny.png";
         case 1003: 
-            return "../image/partly-cloudy.png";
+            return "image/partly-cloudy.png";
         case 1006: 
-            return "../image/partly-cloudy.png";
+            return "image/partly-cloudy.png";
         case 1030: 
-            return "../image/windy.png";
+            return "image/windy.png";
         case 1063: 
         case 1087: 
-            return "../image/thunderstorm.png";
+            return "image/thunderstorm.png";
         case 1183: 
         case 1186:
-            return "../image/raining.png";
+            return "image/raining.png";
         
         default:
-            return "../image/default_icon.png";
+            return "image/default_icon.png";
     }
 }
 
 
+let hum = document.querySelector(".hum");
+let spans = document.querySelectorAll(".hum span");
+
+hum.addEventListener("click",()=>{
+    for (let i = 0; i < spans.length; i++) {
+        
+        spans[i].classList.toggle("active")
+        
+    }
+})
