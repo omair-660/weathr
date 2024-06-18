@@ -113,11 +113,11 @@ document.addEventListener("DOMContentLoaded", function() {
     let date = new Date();
     let hour = date.getHours();
 
-    if (hour >= 3 && hour < 6) {
+    if (hour >= 3 && hour < 7) {
         body.style.backgroundImage = "url('image/fajr.jpeg')";
     } else if (hour >= 7 && hour < 15) {
         body.style.backgroundImage = "url('image/bg-3.jpg')";
-    } else if (hour >= 16 && hour < 19) {
+    } else if (hour >= 15 && hour < 19) {
         body.style.backgroundImage = "url('image/bg4.jpg')";
     } else if (hour >= 19 || hour < 2) {
         body.style.backgroundImage = "url('image/bg1.jpg')";
